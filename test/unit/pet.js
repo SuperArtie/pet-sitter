@@ -132,10 +132,17 @@ describe('#resurrect', function(){
     expect(fluffy.health).to.be.within(25, 50);
   });
 
-//  it('should not resurrect the pet', function(){
-
- // });
-
-});
+  it('should not resurrect the pet', function(){
+    var fluffy = new Pet('fluffy', 3, 'female', 'sloth');
+    fluffy.resurrect();
+    expect(fluffy.isZombie).to.be.false;
+   
+    var baxter = new Pet('baxter', 5, 'male', 'monkey');
+    baxter.isZombie = true;
+    baxter.wins = 3;
+    baxter.resurrect();
+    expect(baxter.isZombie).to.be.true;
+    });
+  });
 
 
